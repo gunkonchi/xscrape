@@ -1,4 +1,4 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash  
 set -euo pipefail
 
 ruff check xscrape tests
