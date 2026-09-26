@@ -1,5 +1,5 @@
 .PHONY: install dev test lint type fmt docker-build docker-up docker-down clean
- 
+  
 install:
 	pip install -e .
 
