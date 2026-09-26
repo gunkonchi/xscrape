@@ -3,7 +3,7 @@
 All notable changes to this project are documented here.
 This project follows [Semantic Versioning](https://semver.org/).
 
-
+ 
 ## [0.4.2] - 2026-04-12
 ### Added
 - Docker and docker-compose support
