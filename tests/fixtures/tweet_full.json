@@ -1,0 +1,40 @@
+{
+  "rest_id": "2",
+  "core": {
+    "user_results": {
+      "result": {
+        "rest_id": "u1",
+        "is_blue_verified": false,
+        "legacy": {
+          "screen_name": "alice",
+          "name": "Alice",
+          "description": "example",
+          "followers_count": 10,
+          "friends_count": 5,
+          "statuses_count": 42
+        }
+      }
+    }
+  },
+  "views": { "count": "1234" },
+  "legacy": {
+    "id_str": "2",
+    "full_text": "hello #python @bob https://example.com",
+    "created_at": "Mon Jan 01 00:00:00 +0000 2024",
+    "lang": "en",
+    "favorite_count": 3,
+    "retweet_count": 1,
+    "reply_count": 0,
+    "quote_count": 0,
+    "in_reply_to_status_id_str": "1",
+    "conversation_id_str": "1",
+    "entities": {
+      "hashtags": [{ "text": "python" }],
+      "user_mentions": [{ "screen_name": "bob" }],
+      "urls": [{ "expanded_url": "https://example.com" }],
+      "media": [
+        { "type": "photo", "media_url_https": "https://example.com/img.jpg" }
+      ]
+    }
+  }
+}

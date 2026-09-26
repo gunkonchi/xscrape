@@ -1,0 +1,43 @@
+version: "3.9"
+ 
+services:
+  xscrape:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: xscrape:latest
+    container_name: xscrape
+    env_file:
+      - .env
+    volumes:
+      - ./data:/data
+      - ./accounts.json:/app/accounts.json:ro
+    working_dir: /app
+    command: ["xscrape", "--help"]
+    restart: unless-stopped
+    networks:
+      - xscrape_net
+
+  # Long-running hashtag monitor as a separate service
+  monitor:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: xscrape:latest
+    container_name: xscrape-monitor
+    env_file:
+      - .env
+    volumes:
+      - ./data:/data
+      - ./accounts.json:/app/accounts.json:ro
+    working_dir: /app
+    command: ["python", "examples/hashtag_monitor.py", "--hashtag", "#ai", "--interval", "60", "--out", "/data/stream.jsonl"]
+    depends_on:
+      - xscrape
+    restart: unless-stopped
+    networks:
+      - xscrape_net
+
+networks:
+  xscrape_net:
+    driver: bridge

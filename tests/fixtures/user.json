@@ -1,0 +1,11 @@
+{
+  "rest_id": "u1",
+  "legacy": {
+    "screen_name": "alice",
+    "name": "Alice",
+    "description": "example",
+    "followers_count": 10,
+    "friends_count": 5,
+    "statuses_count": 42
+  }
+}

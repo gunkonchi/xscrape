@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xscrape"
+version = "0.4.2"
+description = "Async Python client for scraping public X (Twitter) data"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "xscrape contributors" }]
+keywords = ["twitter", "x", "scraper", "async", "api"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "aiohttp>=3.9",
+    "pydantic>=2.5",
+    "tenacity>=8.2",
+    "orjson>=3.9",
+    "python-dotenv>=1.0",
+    "click>=8.1",
+    "rich>=13.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-asyncio", "pytest-cov", "ruff", "mypy", "pre-commit"]
+socks = ["aiohttp-socks>=0.8"]
+docs = ["mkdocs", "mkdocs-material"]
+
+[project.scripts]
+xscrape = "xscrape.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/yourname/xscrape"
+Documentation = "https://github.com/yourname/xscrape/tree/main/docs"
+Issues = "https://github.com/yourname/xscrape/issues"
+
+[tool.setuptools]
+packages = ["xscrape"]
+
+[tool.setuptools.package-data]
+xscrape = ["py.typed"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_unused_ignores = true
+ignore_missing_imports = true

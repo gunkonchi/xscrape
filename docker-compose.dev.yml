@@ -1,0 +1,40 @@
+version: "3.9" 
+
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.dev
+    image: xscrape:dev
+    container_name: xscrape-dev
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - ./data:/data
+    working_dir: /app
+    command: ["bash"]
+    stdin_open: true
+    tty: true
+    networks:
+      - xscrape_dev_net
+
+  test:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.dev
+    image: xscrape:dev
+    container_name: xscrape-test
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: ["pytest", "-q", "--cov=xscrape"]
+    profiles: ["test"]
+    networks:
+      - xscrape_dev_net
+
+networks:
+  xscrape_dev_net:
+    driver: bridge
