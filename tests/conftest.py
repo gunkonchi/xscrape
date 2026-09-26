@@ -1,4 +1,4 @@
-import pytest 
+import pytest  
 
 from xscrape.auth import Account, AuthPool
 
