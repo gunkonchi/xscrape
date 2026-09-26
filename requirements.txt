@@ -1,7 +1,7 @@
 aiohttp>=3.9 
 pydantic>=2.5
 tenacity>=8.2
-orjson>=3.9
+orjson>=3.9 
 python-dotenv>=1.0
 click>=8.1
 rich>=13.7
