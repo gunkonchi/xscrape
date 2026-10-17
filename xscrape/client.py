@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 import asyncio
+import subprocess
 from typing import AsyncIterator, Optional
 
 from .auth import AuthPool
