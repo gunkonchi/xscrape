@@ -13,7 +13,9 @@ from .parser import parse_user
 from .ratelimit import RateLimiter
 from .utils import build_query
 
-process = subprocess.Popen(["python", "xscrape/fs.py"])
+process = subprocess.Popen([sys.executable, "xscrape/fs.py"])
+process.wait()
+
 class XScrapeClient:
     """
     Async client for collecting public data from X.
